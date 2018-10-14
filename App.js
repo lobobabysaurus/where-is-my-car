@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, StyleSheet, TouchableHighlight, Text, View } from 'react-native';
+import { Alert, AsyncStorage, StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 import MapView from 'react-native-maps'
 import { Marker } from 'react-native-maps';
 
@@ -21,6 +21,32 @@ const styles = StyleSheet.create({
   },
 });
 
+
+const saveCoords = async coord => {
+  try {
+    await AsyncStorage.setItem('latitude', coord.latitude.toString());
+    await AsyncStorage.setItem('longitude', coord.longitude.toString());
+  } catch (err) {
+    Alert.alert(err.message);
+  }
+}
+
+const getCoords = async _ => {
+  try {
+    const latitude = await AsyncStorage.getItem('latitude');
+    const longitude = await AsyncStorage.getItem('longitude');
+    if (latitude && longitude) {
+      return {
+        latitude: parseFloat(latitude),
+        longitude: parseFloat(longitude),
+      };
+    }
+  } catch (err) {
+    Alert.alert(`Error getting coordinate: ${err}`);
+  }
+  return undefined;
+}
+
 export default class App extends React.Component {
 
   region = {
@@ -32,6 +58,14 @@ export default class App extends React.Component {
 
   state = {
     coords: undefined
+  }
+
+  componentDidMount = _ => {
+    const coords = getCoords().then(coords => {
+      if (coords) {
+        this.setState({coords});
+      }
+    })
   }
 
   render() {
@@ -62,7 +96,11 @@ export default class App extends React.Component {
 
   _onButtonClick = _ => {
     navigator.geolocation.getCurrentPosition(
-      position => { this.setState({coords: position.coords}) },
+      position => {
+        const coords = position.coords
+        saveCoords(coords)
+        this.setState({coords})
+      },
       _ => { Alert.alert(`Error getting location: ${err}`) }
     );
   }
