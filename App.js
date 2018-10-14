@@ -1,21 +1,34 @@
 import React from 'react';
-import { Alert, Button, StyleSheet, Text, View } from 'react-native';
+import { Alert, StyleSheet, TouchableHighlight, Text, View } from 'react-native';
+import MapView from 'react-native-maps'
+import { Marker } from 'react-native-maps';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000',
+  button: {
     alignItems: 'center',
+    backgroundColor: 'purple',
+    height: '10%',
     justifyContent: 'space-evenly',
+    width: '100%',
+  },
+  map: {
+    height: '90%',
+    width: '100%',
   },
   text: {
-    color: '#fff',
-    minWidth: '35%',
-    textAlign: 'center',
+    color: 'white',
+    fontSize: 36,
   },
 });
 
 export default class App extends React.Component {
+
+  region = {
+    latitude: 39.973960,
+    longitude: -75.130620,
+    latitudeDelta: 0.0111,
+    longitudeDelta: 0.0111,
+  }
 
   state = {
     coords: undefined
@@ -23,38 +36,34 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>{this._formatCoordinates()}</Text>
-        <Button
-          color='purple'
-          onPress={this._onButtonClick}
-          title='Mark'
-        />
+      <View>
+        <MapView style={styles.map} initialRegion={this.region}>
+          {this._marker()}
+        </MapView>
+        <TouchableHighlight style={styles.button} onPress={this._onButtonClick}>
+          <Text style={styles.text}>Mark</Text>
+        </TouchableHighlight>
       </View>
     );
   }
 
-  _formatCoordinates = _ => {
+  _marker = _ => {
     const coords = this.state.coords;
     if (coords) {
-      return `${coords.latitude},${coords.longitude}`;
+      return <Marker
+        coordinate={coords}
+        title="Car"
+        description="You Parked Here!"
+      />
     } else {
-      return "No Coordinates";
+      return undefined;
     }
   }
 
   _onButtonClick = _ => {
     navigator.geolocation.getCurrentPosition(
-      this._onGeoSuccess,
-      this._onGeoError);
+      position => { this.setState({coords: position.coords}) },
+      _ => { Alert.alert(`Error getting location: ${err}`) }
+    );
   }
-
-  _onGeoSuccess = (position) => {
-    this.setState({coords: position.coords});
-  }
-
-  _onGeoError(err) {
-    Alert.alert(`Error getting location: ${err}`);
-  }
-
 }
