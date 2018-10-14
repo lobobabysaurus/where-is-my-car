@@ -1,7 +1,6 @@
-import React from 'react';
-import { Alert, AsyncStorage, StyleSheet, TouchableHighlight, Text, View } from 'react-native';
+import React from 'react'
+import { Alert, AsyncStorage, StyleSheet, TouchableHighlight, Text, View } from 'react-native'
 import MapView from 'react-native-maps'
-import { Marker } from 'react-native-maps';
 
 const styles = StyleSheet.create({
   button: {
@@ -19,51 +18,50 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 36,
   },
-});
-
+})
 
 const saveCoords = async coord => {
   try {
-    await AsyncStorage.setItem('latitude', coord.latitude.toString());
-    await AsyncStorage.setItem('longitude', coord.longitude.toString());
+    await AsyncStorage.setItem('latitude', coord.latitude.toString())
+    await AsyncStorage.setItem('longitude', coord.longitude.toString())
   } catch (err) {
-    Alert.alert(err.message);
+    Alert.alert(err.message)
   }
 }
 
-const getCoords = async _ => {
+const getCoords = async () => {
   try {
-    const latitude = await AsyncStorage.getItem('latitude');
-    const longitude = await AsyncStorage.getItem('longitude');
+    const latitude = await AsyncStorage.getItem('latitude')
+    const longitude = await AsyncStorage.getItem('longitude')
     if (latitude && longitude) {
       return {
         latitude: parseFloat(latitude),
         longitude: parseFloat(longitude),
-      };
+      }
     }
   } catch (err) {
-    Alert.alert(`Error getting coordinate: ${err}`);
+    Alert.alert(`Error getting coordinate: ${err}`)
   }
-  return undefined;
+  return undefined
 }
 
 export default class App extends React.Component {
 
   region = {
     latitude: 39.973960,
-    longitude: -75.130620,
     latitudeDelta: 0.0111,
+    longitude: -75.130620,
     longitudeDelta: 0.0111,
   }
 
   state = {
-    coords: undefined
+    coords: undefined,
   }
 
-  componentDidMount = _ => {
-    const coords = getCoords().then(coords => {
+  componentDidMount = () => {
+    getCoords().then(coords => {
       if (coords) {
-        this.setState({coords});
+        this.setState({coords})
       }
     })
   }
@@ -78,30 +76,30 @@ export default class App extends React.Component {
           <Text style={styles.text}>Mark</Text>
         </TouchableHighlight>
       </View>
-    );
+    )
   }
 
-  _marker = _ => {
-    const coords = this.state.coords;
+  _marker = () => {
+    const coords = this.state.coords
     if (coords) {
-      return <Marker
+      return <MapView.Marker
         coordinate={coords}
         title="Car"
         description="You Parked Here!"
       />
     } else {
-      return undefined;
+      return undefined
     }
   }
 
-  _onButtonClick = _ => {
+  _onButtonClick = () => {
     navigator.geolocation.getCurrentPosition(
       position => {
         const coords = position.coords
         saveCoords(coords)
         this.setState({coords})
       },
-      _ => { Alert.alert(`Error getting location: ${err}`) }
-    );
+      (err) => { Alert.alert(`Error getting location: ${err}`) }
+    )
   }
 }
