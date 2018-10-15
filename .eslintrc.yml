@@ -2,9 +2,11 @@ env:
   browser: true
   commonjs: true
   es6: true
+  jest/globals: true
   node: true
-extends: 
+extends:
   - 'eslint:recommended'
+  - 'plugin:jest/recommended'
   - 'plugin:react/recommended'
 parser: babel-eslint
 parserOptions:
@@ -13,6 +15,7 @@ parserOptions:
   ecmaVersion: 2018
   sourceType: module
 plugins:
+  - jest
   - react
 rules:
   arrow-spacing:

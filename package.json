@@ -7,7 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "lint": "eslint *.js",
+    "lint": "eslint *.js ./**/*.js",
     "test": "jest"
   },
   "jest": {
@@ -24,6 +24,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "eslint": "^5.7.0",
+    "eslint-plugin-jest": "^21.25.0",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
     "react-test-renderer": "^16.5.2"
