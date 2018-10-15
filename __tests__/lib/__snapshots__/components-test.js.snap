@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarkButton renders correctly 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "purple",
+      "height": "10%",
+      "justifyContent": "space-evenly",
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "white",
+        "fontSize": 36,
+      }
+    }
+  >
+    Mark
+  </Text>
+</View>
+`;
+
+exports[`MarkedMap renders correctly 1`] = `
+<MapView
+  initialRegion={
+    Object {
+      "latitude": 0,
+      "latitudeDelta": 1,
+      "longitude": 0,
+      "longitudeDelta": 1,
+    }
+  }
+  style={
+    Object {
+      "height": "90%",
+      "width": "100%",
+    }
+  }
+/>
+`;
