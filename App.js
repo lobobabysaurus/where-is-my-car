@@ -3,6 +3,7 @@ import { Alert, View } from 'react-native'
 
 import { getCoords, saveCoords } from './lib/coords'
 import { MarkButton, MarkedMap } from './lib/components'
+import style from './lib/styles'
 
 export default class App extends React.Component {
 
@@ -26,7 +27,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={style.container}>
         <MarkedMap coords={this.state.coords} region={this.region}/>
         <MarkButton onPress={this._updateLocation} />
       </View>

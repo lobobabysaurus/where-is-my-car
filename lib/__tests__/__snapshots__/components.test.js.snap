@@ -14,9 +14,8 @@ exports[`MarkButton renders correctly 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "purple",
-      "height": "10%",
+      "flexBasis": "10%",
       "justifyContent": "space-evenly",
-      "width": "100%",
     }
   }
 >
@@ -45,8 +44,7 @@ exports[`MarkedMap render a marker when a coordinate is provided 1`] = `
   }
   style={
     Object {
-      "height": "90%",
-      "width": "100%",
+      "flexBasis": "90%",
     }
   }
 >
@@ -75,8 +73,7 @@ exports[`MarkedMap renders correctly for the provided region with no markers by 
   }
   style={
     Object {
-      "height": "90%",
-      "width": "100%",
+      "flexBasis": "90%",
     }
   }
 />
