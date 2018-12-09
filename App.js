@@ -15,33 +15,40 @@ export default class App extends React.Component {
   }
 
   state = {
-    coords: undefined,
+    allCoords: [],
+    markedCoords: undefined,
   }
 
   componentDidMount = async () => {
     const coords = await getCoords()
     if (coords) {
-      this.setState({coords})
+      this._updateCoordinates(coords)
     }
   }
 
   render() {
     return (
       <View style={style.container}>
-        <MarkedMap coords={this.state.coords} region={this.region}/>
-        <MarkButton onPress={this._updateLocation} />
+        <MarkedMap coords={this.state.markedCoords} region={this.region}/>
+        <MarkButton onPress={this._trackLocation} />
       </View>
     )
   }
 
-  _updateLocation = () => {
+  _trackLocation = () => {
     navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const {coords} = position
-        saveCoords(coords)
-        this.setState({coords})
+      async (position) => {
+        const coords = await saveCoords(position.coords)
+        this._updateCoordinates(coords)
       },
       (err) => Alert.alert(`Error getting location: ${err}`)
     )
+  }
+
+  _updateCoordinates = (coords) => {
+    this.setState({
+      allCoords: coords,
+      markedCoords: coords[coords.length-1]
+    })
   }
 }
