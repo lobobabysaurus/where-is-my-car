@@ -34,6 +34,7 @@
     "husky": "^1.2.0",
     "jest": "^23.6.0",
     "lint-staged": "^8.1.0",
+    "mock-async-storage": "^2.0.4",
     "react-test-renderer": "^16.5.2"
   },
   "husky": {
@@ -43,6 +44,9 @@
     }
   },
   "lint-staged": {
-    "*.js": ["yarn lint --fix", "git add"]
+    "*.js": [
+      "yarn lint --fix",
+      "git add"
+    ]
   }
 }
