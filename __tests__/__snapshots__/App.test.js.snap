@@ -24,34 +24,47 @@ exports[`App renders correctly 1`] = `
       }
     }
   />
-  <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
+  <ExponentLinearGradient
+    colors={
+      Array [
+        4283484280,
+        4278190219,
+      ]
+    }
     style={
       Object {
-        "alignItems": "center",
-        "backgroundColor": "purple",
         "flexBasis": "10%",
-        "justifyContent": "space-evenly",
       }
     }
   >
-    <Text
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "color": "white",
-          "fontSize": 36,
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
         }
       }
     >
-      Mark
-    </Text>
-  </View>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 36,
+          }
+        }
+      >
+        Mark
+      </Text>
+    </View>
+  </ExponentLinearGradient>
 </View>
 `;
