@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MarkButton renders correctly 1`] = `
+<ExponentLinearGradient
+  colors={
+    Array [
+      4283484280,
+      4278190219,
+    ]
+  }
+  style={
+    Object {
+      "flexBasis": "10%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 36,
+        }
+      }
+    >
+      Mark
+    </Text>
+  </View>
+</ExponentLinearGradient>
+`;

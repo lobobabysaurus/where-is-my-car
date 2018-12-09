@@ -1,55 +1,14 @@
-import { Location } from 'expo'
-import React from 'react'
-import { Alert, View } from 'react-native'
+import { createStackNavigator, createAppContainer } from 'react-navigation'
 
-import { getCoords, saveCoords } from './lib/coords'
-import { MarkButton, MarkedMap } from './lib/components'
-import style from './lib/styles'
+import * as routes from './lib/routes'
+import HistoryScreen from './lib/containers/HistoryScreen'
+import MapScreen from './lib/containers/MapScreen'
 
-export default class App extends React.Component {
+const screens = {}
+screens[routes.HISTORY] = HistoryScreen
+screens[routes.MAP] = MapScreen
+const AppNavigator = createStackNavigator(screens, {
+  initialRouteName: 'Map'
+})
 
-  region = {
-    latitude: 39.973960,
-    latitudeDelta: 0.0111,
-    longitude: -75.130620,
-    longitudeDelta: 0.0111,
-  }
-
-  state = {
-    allCoords: [],
-    markedCoords: undefined,
-  }
-
-  componentDidMount = async () => {
-    const coords = await getCoords()
-    if (coords) {
-      this._updateCoordinates(coords)
-    }
-  }
-
-  render() {
-    return (
-      <View style={style.container}>
-        <MarkedMap coords={this.state.markedCoords} region={this.region}/>
-        <MarkButton onPress={this._trackLocation} />
-      </View>
-    )
-  }
-
-  _trackLocation = async () => {
-    try {
-      const position = await Location.getCurrentPositionAsync()
-      const coords = await saveCoords(position.coords)
-      this._updateCoordinates(coords)
-    } catch (err) {
-      Alert.alert(`Error getting location: ${err}`)
-    }
-  }
-
-  _updateCoordinates = (coords) => {
-    this.setState({
-      allCoords: coords,
-      markedCoords: coords[coords.length-1]
-    })
-  }
-}
+export default createAppContainer(AppNavigator)

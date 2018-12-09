@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HistoryScreen renders correctly 1`] = `
+<View>
+  <Text>
+    Bah
+  </Text>
+</View>
+`;

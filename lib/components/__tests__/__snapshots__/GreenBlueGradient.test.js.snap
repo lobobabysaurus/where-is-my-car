@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GreenBlueGradient renders correctly 1`] = `
+<ExponentLinearGradient
+  colors={
+    Array [
+      4283484280,
+      4278190219,
+    ]
+  }
+  style={
+    Object {
+      "maxWidth": 23,
+    }
+  }
+>
+  <Text>
+    Im in a gradient
+  </Text>
+</ExponentLinearGradient>
+`;
