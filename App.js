@@ -17,12 +17,11 @@ export default class App extends React.Component {
     coords: undefined,
   }
 
-  componentDidMount = () => {
-    getCoords().then(coords => {
-      if (coords) {
-        this.setState({coords})
-      }
-    })
+  componentDidMount = async () => {
+    const coords = await getCoords()
+    if (coords) {
+      this.setState({coords})
+    }
   }
 
   render() {
@@ -41,7 +40,7 @@ export default class App extends React.Component {
         saveCoords(coords)
         this.setState({coords})
       },
-      (err) => { Alert.alert(`Error getting location: ${err}`) }
+      (err) => Alert.alert(`Error getting location: ${err}`)
     )
   }
 }
