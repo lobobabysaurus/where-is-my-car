@@ -33,7 +33,37 @@ exports[`MarkButton renders correctly 1`] = `
 </View>
 `;
 
-exports[`MarkedMap renders correctly 1`] = `
+exports[`MarkedMap render a marker when a coordinate is provided 1`] = `
+<MapView
+  initialRegion={
+    Object {
+      "latitude": 0,
+      "latitudeDelta": 1,
+      "longitude": 0,
+      "longitudeDelta": 1,
+    }
+  }
+  style={
+    Object {
+      "height": "90%",
+      "width": "100%",
+    }
+  }
+>
+  <Marker
+    coordinate={
+      Object {
+        "latitude": 5,
+        "longitude": 5,
+      }
+    }
+    description="You Parked Here!"
+    title="Car"
+  />
+</MapView>
+`;
+
+exports[`MarkedMap renders correctly for the provided region with no markers by default 1`] = `
 <MapView
   initialRegion={
     Object {

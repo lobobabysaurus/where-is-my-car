@@ -35,8 +35,8 @@ export default class App extends React.Component {
 
   _updateLocation = () => {
     navigator.geolocation.getCurrentPosition(
-      position => {
-        const coords = position.coords
+      (position) => {
+        const {coords} = position
         saveCoords(coords)
         this.setState({coords})
       },
