@@ -44,9 +44,6 @@ rules:
     - 2
   jsx-quotes:
     - error
-  linebreak-style:
-    - error
-    - unix
   no-unused-expressions:
     - error
   no-multi-spaces:
@@ -78,4 +75,4 @@ rules:
     - never
 settings:
   react:
-    version: 16.3.1
+    version: 16.5.0
