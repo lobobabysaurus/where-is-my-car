@@ -1,3 +1,4 @@
+import { Location } from 'expo'
 import React from 'react'
 import { Alert, View } from 'react-native'
 
@@ -35,14 +36,14 @@ export default class App extends React.Component {
     )
   }
 
-  _trackLocation = () => {
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const coords = await saveCoords(position.coords)
-        this._updateCoordinates(coords)
-      },
-      (err) => Alert.alert(`Error getting location: ${err}`)
-    )
+  _trackLocation = async () => {
+    try {
+      const position = await Location.getCurrentPositionAsync()
+      const coords = await saveCoords(position.coords)
+      this._updateCoordinates(coords)
+    } catch (err) {
+      Alert.alert(`Error getting location: ${err}`)
+    }
   }
 
   _updateCoordinates = (coords) => {
