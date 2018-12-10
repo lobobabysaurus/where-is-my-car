@@ -20,6 +20,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "com.tubbycatgames.whereismycar"
+    },
     "ios": {
       "supportsTablet": true
     }
