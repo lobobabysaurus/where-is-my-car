@@ -14,7 +14,7 @@ const screens = [
   },
   {})
 const AppNavigator = createStackNavigator(screens, {
-  initialRouteName: 'Map'
+  initialRouteName: routes.MAP
 })
 
 export default createAppContainer(AppNavigator)

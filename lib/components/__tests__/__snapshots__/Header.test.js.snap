@@ -1,129 +1,155 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders with all sections correctly 1`] = `
-<ExponentLinearGradient
-  colors={
-    Array [
-      4283484280,
-      4278190219,
-    ]
-  }
+<View
+  onLayout={[Function]}
+  pointerEvents="box-none"
   style={
     Object {
-      "flexBasis": "10%",
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 20,
     }
   }
 >
-  <View
+  <ExponentLinearGradient
+    colors={
+      Array [
+        4283484280,
+        4278190219,
+      ]
+    }
     style={
       Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
+        "flexBasis": "10%",
       }
     }
   >
     <View
       style={
         Object {
-          "flexBasis": "33%",
+          "alignItems": "flex-end",
+          "flex": 1,
+          "flexDirection": "row",
         }
       }
     >
-      <Text>
-        Left Content
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexBasis": "33%",
-        }
-      }
-    >
-      <Text
+      <View
         style={
           Object {
-            "color": "white",
-            "fontSize": 36,
+            "flexBasis": "33%",
           }
         }
       >
-        All Three
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexBasis": "33%",
+        <Text>
+          Left Content
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexBasis": "33%",
+          }
         }
-      }
-    >
-      <Text>
-        Right Content
-      </Text>
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 36,
+            }
+          }
+        >
+          All Three
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexBasis": "33%",
+          }
+        }
+      >
+        <Text>
+          Right Content
+        </Text>
+      </View>
     </View>
-  </View>
-</ExponentLinearGradient>
+  </ExponentLinearGradient>
+</View>
 `;
 
 exports[`Header renders with missing sections correctly 1`] = `
-<ExponentLinearGradient
-  colors={
-    Array [
-      4283484280,
-      4278190219,
-    ]
-  }
+<View
+  onLayout={[Function]}
+  pointerEvents="box-none"
   style={
     Object {
-      "flexBasis": "10%",
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 20,
     }
   }
 >
-  <View
+  <ExponentLinearGradient
+    colors={
+      Array [
+        4283484280,
+        4278190219,
+      ]
+    }
     style={
       Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
+        "flexBasis": "10%",
       }
     }
   >
     <View
       style={
         Object {
-          "flexBasis": "33%",
-        }
-      }
-    />
-    <View
-      style={
-        Object {
-          "flexBasis": "33%",
+          "alignItems": "flex-end",
+          "flex": 1,
+          "flexDirection": "row",
         }
       }
     >
-      <Text
+      <View
         style={
           Object {
-            "color": "white",
-            "fontSize": 36,
+            "flexBasis": "33%",
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "flexBasis": "33%",
           }
         }
       >
-        Only Title
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexBasis": "33%",
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 36,
+            }
+          }
+        >
+          Only Title
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexBasis": "33%",
+          }
         }
-      }
-    />
-  </View>
-</ExponentLinearGradient>
+      />
+    </View>
+  </ExponentLinearGradient>
+</View>
 `;
 
 exports[`HeaderButton renders correctly 1`] = `
